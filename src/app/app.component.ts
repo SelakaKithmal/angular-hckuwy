@@ -25,17 +25,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  // addNext() {
-  //   (this.form.controls["items"] as FormArray).push(this.createItem());
-  // }
-
-    onChanges(): void {
+  onChanges(): void {
     this.form.get("items").valueChanges.subscribe(value => {
       this.businesses.push({
-        name: value,
+        name: value[0].name,
         id: Math.floor(Math.random() * 100 + 1)
       });
-      //(this.form.controls["items"] as FormArray).push(this.createItem());
     });
   }
 }
