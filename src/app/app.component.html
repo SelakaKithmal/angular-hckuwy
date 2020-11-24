@@ -1,4 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
+	<p>Select a value </p>
 	<div formArrayName="items" *ngFor="let item of form.controls['items'].controls; let i = index">
 		<div [formGroupName]="i">
 			<select  formControlName='name' (change)="addNext()" >
