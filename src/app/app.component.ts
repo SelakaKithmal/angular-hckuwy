@@ -9,7 +9,11 @@ import { FormGroup, FormArray, FormBuilder } from "@angular/forms";
 export class AppComponent implements OnInit {
   name = "Angular 6";
   form: FormGroup;
-  businesses = [{ name: "one", id: 0 }, { name: "two", id: 1 }];
+  businesses = [
+    { name: "one", id: 0 },
+    { name: "two", id: 1 },
+    { name: "three", id: 2 }
+  ];
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
