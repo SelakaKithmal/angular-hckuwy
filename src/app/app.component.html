@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+	<div formArrayName="items" *ngFor="let item of form.controls['items'].controls; let i = index">
+		<div [formGroupName]="i">
+			<select  formControlName='name' (change)="addNext()" >
+                    <option *ngFor="let opt of businesses; let i =index" [value]="opt.id">{{opt.name}}</option>         
+            </select>
+		</div>
+	</div>
+</form>
