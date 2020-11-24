@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     this.form = this.fb.group({
       items: this.fb.array([this.createItem()])
     });
+    this.onChanges();
   }
 
   createItem() {
@@ -24,7 +25,17 @@ export class AppComponent implements OnInit {
     });
   }
 
-  addNext() {
-    (this.form.controls["items"] as FormArray).push(this.createItem());
+  // addNext() {
+  //   (this.form.controls["items"] as FormArray).push(this.createItem());
+  // }
+
+    onChanges(): void {
+    this.form.get("items").valueChanges.subscribe(value => {
+      this.businesses.push({
+        name: value,
+        id: Math.floor(Math.random() * 100 + 1)
+      });
+      //(this.form.controls["items"] as FormArray).push(this.createItem());
+    });
   }
 }
